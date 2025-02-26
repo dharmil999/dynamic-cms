@@ -7,5 +7,5 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('{any?}', function () {
-    return view('front.app');
+    return view('app');
 })->where('any', '.*');

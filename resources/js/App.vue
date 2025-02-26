@@ -1,3 +1,9 @@
 <template>
-    <h1 v-if="true">Vue page</h1>
+  <router-view />
 </template>
+
+<script>
+export default {
+  name: 'App',
+}
+</script>

@@ -25,10 +25,10 @@ class Page extends Model
         foreach ($slugs as $index => $slug) {
             if ($index === 0) {
                 // Get the root page
-                $parent = Page::where('slug', $slug)->whereNull('parent_id')->first();
+                $parent = Page::with('children')->where('slug', $slug)->whereNull('parent_id')->first();
             } else {
                 if (!$parent) return null; 
-                $parent = $parent->children()->where('slug', $slug)->first();
+                $parent = $parent->children->where('slug', $slug)->first();
             }
 
             if (!$parent) return null; 

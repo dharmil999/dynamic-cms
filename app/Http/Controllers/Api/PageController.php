@@ -42,7 +42,7 @@ class PageController extends Controller
         $slugs = explode('/', $path);
         $page = Page::findPageBySlug($slugs);
         if (!$page) {
-            return $this->fail([],'Page not found');
+            return $this->fail([],'Page not found',404);
         }
 
         return $this->success($page);
